@@ -24,7 +24,7 @@ PLUGIN_PKGS = ofono $(PLUGIN_LDPKGS)
 # Default target
 #
 
-all: debug release
+all: debug release pkgconfig
 
 #
 # Plugin and library version
