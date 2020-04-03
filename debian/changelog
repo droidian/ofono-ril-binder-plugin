@@ -1,0 +1,5 @@
+ofono-ril-binder-plugin (1.0.13) unstable; urgency=low
+
+  * Add initial packaging for Debian.
+
+ -- Danct12 <danct12@disroot.org>  Tue, 03 Apr 2020 03:55:55 +0700

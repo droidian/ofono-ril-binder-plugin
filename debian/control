@@ -1,0 +1,23 @@
+Source: ofono-ril-binder-plugin
+Priority: optional
+Maintainer: Danct12 <danct12@disroot.org>
+Build-Depends: debhelper (>= 7), libgrilio-dev (>= 1.0.35), libgbinder-dev (>= 1.0.23), libgbinder-radio-dev (>= 1.0.8), ofono-dev (>= 1.21)
+Standards-Version: 3.8.4
+
+Package: ofono-ril-binder-plugin
+Section: libs
+Architecture: any
+Depends: libgbinder (>= 1.0.23), ${shlibs:Depends}, ${misc:Depends}
+Description: This package contains ofono plugin which implements binder transport for RIL
+
+Package: libgrilio-binder
+Section: libs
+Architecture: any
+Depends: libgbinder (>= 1.0.23), libgbinder-radio (>= 1.0.8), ${shlibs:Depends}, ${misc:Depends}
+Description: This package contains ofono plugin which implements binder transport for RIL
+
+Package: libgrilio-binder-dev
+Section: libdevel
+Architecture: any
+Depends: libgrilio-binder, libgrilio (>= 1.0.35), libgbinder (>= 1.0.23),libgbinder-radio (>= 1.0.8), ${shlibs:Depends}, ${misc:Depends}
+Description: This package contains ofono plugin which implements binder transport for RIL
