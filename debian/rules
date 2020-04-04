@@ -6,6 +6,11 @@
 
 override_dh_auto_install:
 	dh_auto_install -- install-dev
+	for file in debian/*.in; \
+	do \
+		sed -e"s,\$${DEB_HOST_MULTIARCH},$(DEB_HOST_MULTIARCH),g" \
+			$${file} > $${file%%.in}; \
+	done
 
 %:
 	dh $@
