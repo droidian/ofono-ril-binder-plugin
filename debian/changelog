@@ -1,3 +1,10 @@
+ofono-ril-binder-plugin (1.0.13+gemian1) unstable; urgency=medium
+
+  * Import into Gemian
+  * Install libs to /usr/lib/${DEB_HOST_MULTIARCH}
+
+ -- TheKit <thekit@disroot.org>  Sat, 04 Apr 2020 13:30:09 +0200
+
 ofono-ril-binder-plugin (1.0.13) unstable; urgency=low
 
   * Add initial packaging for Debian.

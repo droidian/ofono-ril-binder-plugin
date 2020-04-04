@@ -1,7 +1,8 @@
 Source: ofono-ril-binder-plugin
+Section: libs
 Priority: optional
 Maintainer: Danct12 <danct12@disroot.org>
-Build-Depends: debhelper (>= 7), libgrilio-dev (>= 1.0.35), libgbinder-dev (>= 1.0.23), libgbinder-radio-dev (>= 1.0.8), ofono-dev (>= 1.21)
+Build-Depends: debhelper (>= 7), libglibutil-dev, libgrilio-dev (>= 1.0.35), libgbinder-dev (>= 1.0.23), libgbinder-radio-dev (>= 1.0.8), ofono-dev (>= 1.21)
 Standards-Version: 3.8.4
 
 Package: ofono-ril-binder-plugin
