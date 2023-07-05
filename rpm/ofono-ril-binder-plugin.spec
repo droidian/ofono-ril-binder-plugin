@@ -1,22 +1,28 @@
 Name: ofono-ril-binder-plugin
-Version: 1.2.5
+
+Version: 1.2.7
 Release: 1
 Summary: Ofono RIL binder transport plugin
 License: BSD
 URL: https://github.com/mer-hybris/ofono-ril-binder-plugin
 Source: %{name}-%{version}.tar.bz2
 
-%define ofono_version 1.21+git57
 %define libgrilio_version 1.0.35
 %define libgbinder_version 1.0.23
 %define libgbinder_radio_version 1.4.1
 
-Requires: ofono >= %{ofono_version}
-Requires: libgrilio >= %{libgrilio_version}
+BuildRequires: pkgconfig
 BuildRequires: ofono-devel >= %{ofono_version}
 BuildRequires: pkgconfig(libgrilio) >= %{libgrilio_version}
 
-%define plugin_dir %{_libdir}/ofono/plugins
+# license macro requires rpm >= 4.11
+BuildRequires: pkgconfig(rpm)
+%define license_support %(pkg-config --exists 'rpm >= 4.11'; echo $?)
+
+Requires: ofono-ril-plugin
+Requires: libgrilio >= %{libgrilio_version}
+
+%define plugin_dir %(pkg-config ofono --variable=plugindir)
 
 %description
 This package contains ofono plugin which implements binder transport for RIL
@@ -38,6 +44,9 @@ mkdir -p %{buildroot}/%{plugin_dir}
 %dir %{plugin_dir}
 %defattr(-,root,root,-)
 %{plugin_dir}/rilbinderplugin.so
+%if %{license_support} == 0
+%license LICENSE
+%endif
 
 #############################################################################
 
@@ -60,7 +69,6 @@ Requires: pkgconfig(libgrilio) >= %{libgrilio_version}
 Requires: pkgconfig(libgbinder) >= %{libgbinder_version}
 Requires: pkgconfig(libgbinder-radio) >= %{libgbinder_radio_version}
 Requires: libgrilio-binder = %{version}
-Requires: pkgconfig
 
 %post -n libgrilio-binder -p /sbin/ldconfig
 
@@ -72,6 +80,9 @@ This package contains the development library for libgrilio-binder.
 %files -n libgrilio-binder
 %defattr(-,root,root,-)
 %{_libdir}/libgrilio-binder.so.*
+%if %{license_support} == 0
+%license LICENSE
+%endif
 
 %files -n libgrilio-binder-devel
 %defattr(-,root,root,-)
